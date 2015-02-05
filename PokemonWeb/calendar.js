@@ -8,7 +8,7 @@ function getTime()
 {
 	var today = new Date();	
 	var seconds	= today.getSeconds();
-	var minutes	= today.getMinutes();	
+	var minutes	= today.getMinutes();
 	var hours = today.getHours();
 	
 	//formats hours into 12-hr format
@@ -48,9 +48,9 @@ function printTime(calendar)
 		+ 	"<img src='" + getImage(yearSecond) + "'>" 
 		+ 	"<br>";
 		
-		out += 	"The time is: " + calendar[2] + ":"
-		+ calendar[1] + ":"
-		+ calendar[0] + "<br>The date is: "		
+	out += 	"The time is: " + calendar[2] + ":"
+		+ pad(calendar[1]) + ":"
+		+ pad(calendar[0]) + "<br>The date is: "		
 		+ calendar[4] + "/"
 		+ calendar[3] + "/"
 		+ yearFirst + yearSecond + "<br>";
@@ -77,4 +77,10 @@ function getImage(number)
 	//extract the url of the sprite image file
 	img = "http://pokeapi.co" + JSON.parse(xhr.response).image
 	return img;
+}
+
+//Pads a number with leading zero if less than 10
+function pad(n) 
+{
+    return (n < 10) ? ("0" + n) : n;
 }
