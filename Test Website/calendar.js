@@ -39,17 +39,25 @@ function printTime(calendar)
 	
 	//generate a string of xml code
 	var out = "";
-	out += 	"<img src='" + getImage(calendar[0]) + "'> SECONDS<br>"
-		+ 	"<img src='" + getImage(calendar[1]) + "'> MINUTES<br>"
-		+ 	"<img src='" + getImage(calendar[2]) + "'> HOURS<br>"		
+	out += 	"<img src='" + getImage(calendar[2]) + "'> :"
+		+ 	"<img src='" + getImage(calendar[1]) + "'> :"
+		+ 	"<img src='" + getImage(calendar[0]) + "'><br>"		
 		+ 	"<img src='" + getImage(calendar[4]) + "'>/"
 		+ 	"<img src='" + getImage(calendar[3]) + "'>/"
 		+ 	"<img src='" + getImage(yearFirst) + "'>"
 		+ 	"<img src='" + getImage(yearSecond) + "'>" 
 		+ 	"<br>";
+		
+		out += 	"The time is: " + calendar[2] + ":"
+		+ calendar[1] + ":"
+		+ calendar[0] + "<br>The date is: "		
+		+ calendar[4] + "/"
+		+ calendar[3] + "/"
+		+ yearFirst + yearSecond + "<br>";
 
 	//output generated string to div on html
 	document.getElementById("id01").innerHTML += out;
+	document.getElementById("id01").style.fontSize = "xx-large";
 }
 
 //Gets url to an image given a pokedex entry number
